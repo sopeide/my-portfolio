@@ -1,0 +1,82 @@
+@import "../../_globalColor";
+
+.social-media-div {
+  font-size: 2em;
+}
+
+.icon-button {
+  margin-bottom: 10px;
+}
+
+/* 1. 基础容器样式（所有图标共用） */
+.icon-button i {
+  color: $textColorDark;
+  border-radius: 2.6rem;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1.3rem;
+  height: 2.6rem;
+  line-height: 2.6rem;
+  margin: 0 5px;
+  position: relative;
+  text-align: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 2.6rem;
+  margin-bottom: 10px;
+  transition: 0.2s ease-in;
+}
+
+/* 2. 原有国外平台样式（保持圆圈背景，图标较小） */
+.facebook i { background-color: $faceBook; }
+.linkedin i { background-color: $linkedin; }
+.github i { background-color: $github; }
+.gitlab i { background-color: $gitlab; }
+.google i { background-color: $google; }
+.twitter i { background-color: $twitter; }
+.medium i { background-color: $medium; }
+.stack-overflow i { background-color: $stackoverflow; }
+.kaggle i { background-color: $kaggle; }
+.instagram i { background-color: $instagram; }
+
+/* 3. 微信与 CSDN 专属样式（无背景，图标撑满） */
+.wechat i, .csdn i {
+  background-color: transparent !important; /* 强制去掉圆圈背景 */
+  
+  .icon {
+    /* 调整为 2.4rem，既能撑满，又能保持视觉上的居中对齐 */
+    width: 2.4rem;  
+    height: 2.4rem; 
+  }
+}
+
+// /* 4. 控制 Iconfont 引入的 SVG 颜色 */
+// .wechat i .icon { fill: #7bb32e; }
+// .csdn i .icon { fill: #ca0c16; }
+
+/* 5. 原有图标（FontAwesome）的大小控制 */
+/* 这里的 .icon 是你写在 <svg> 上的类，不影响原来的 <i> 标签里的图标 */
+.icon-button i .icon {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+  /* 6. Hover 逻辑 */
+  .icon-button i:hover {
+    transform: scale(1.15);
+  }
+
+/* 只有带背景色的图标（除了微信和CSDN）在 hover 时变色 */
+.icon-button:not(.wechat):not(.csdn) i:hover {
+  background-color: $textColor;
+}
+
+/* Media Query */
+@media (max-width: 768px) {
+  .social-media-div {
+    text-align: center;
+    justify-content: center;
+  }
+}
