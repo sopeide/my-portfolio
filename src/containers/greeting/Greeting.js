@@ -15,14 +15,19 @@ export default function Greeting({ openModal }) {
     return null;
   }
 
+  // 1. 修改点击处理函数，增加 process.env.PUBLIC_URL 确保路径万无一失
   const handleResumeClick = (e) => {
-    e.preventDefault();
-    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-    if (isMobile) {
-      window.open("/resume.pdf", "_blank");
-    } else {
-      openModal("resume", { title: "个人简历预览", src: "/resume.pdf" });
-    }
+      e.preventDefault();
+      // 核心：使用 PUBLIC_URL 获取正确的图片地址
+      const resumeImgPath = process.env.PUBLIC_URL + "/resume.jpg"; 
+
+      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+      if (isMobile) {
+        window.open(resumeImgPath, "_blank");
+      } else {
+        // 这里的 src 也必须带上环境路径
+        openModal("resume", { title: "个人简历预览", src: resumeImgPath });
+      }
   };
 
   return (
@@ -59,7 +64,7 @@ export default function Greeting({ openModal }) {
                 {greeting.resumeLink && (
                   <Button 
                     text="查看我的简历" 
-                    href="/resume.pdf" 
+                    // href="/resume.pdf" 
                     newTab={true}
                     // 【修改点 3】：绑定点击事件
                     onClick={handleResumeClick}

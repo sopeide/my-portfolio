@@ -25,38 +25,27 @@ export default function AchievementCard({cardInfo, isDark, openModal}) {
     }
   }
 
-  return (
-    <div className={isDark ? "dark-mode certificate-card" : "certificate-card"}>
-      <div className="certificate-image-div">
-        <img
-          src={cardInfo.image}
-          alt={cardInfo.imageAlt || "Card Thumbnail"}
-          className="card-image"
-        ></img>
-      </div>
-      <div className="certificate-detail-div">
-        <h5 className={isDark ? "dark-mode card-title" : "card-title"}>
-          {cardInfo.title}
-        </h5>
-        <p className={isDark ? "dark-mode card-subtitle" : "card-subtitle"}>
-          {cardInfo.description}
-        </p>
-      </div>
-      <div className="certificate-card-footer">
-        {cardInfo.footer.map((v, i) => {
-          return (
-            <span
-              key={i}
-              className={
-                isDark ? "dark-mode certificate-tag" : "certificate-tag"
-              }
-              onClick={() => handleButtonClick(v)}
-            >
-              {v.name}
-            </span>
-          );
-        })}
-      </div>
-    </div>
-  );
+  function handleButtonClick(v) {
+  if (!v.url) return;
+
+  // 核心改动：手动拼接正确的基础路径
+  const correctUrl = v.url.startsWith("http") 
+    ? v.url 
+    : process.env.PUBLIC_URL + v.url.replace("./", "/");
+
+  if (v.name.includes("Certificate") || v.name.includes("证书")) {
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    if (isMobile) {
+      window.open(correctUrl, "_blank");
+    } else {
+      openModal("certificate", {
+        title: cardInfo.title,
+        src: correctUrl // 确保传给弹窗的是拼接后的正确路径
+      });
+    }
+  } else {
+    window.open(correctUrl, "_blank").focus();
+  }
+}
+  
 }

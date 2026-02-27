@@ -26,7 +26,7 @@ const greeting = {
     "一位具有扎实模电、数电、半导体物理知识的25届毕业生 🚀 同时也是全栈开发和3D建模的爱好者。熟悉使用各种AI软件配合工作顺利推进，做事细致严谨、耐心专注，"
   ),
   resumeLink:
-    "https://cdn.jsdelivr.net/gh/sopeide/-@main/%E6%97%A0%E6%84%8F%E5%90%91.pdf", // Set to empty to hide the button
+    "/resume.jpg", // Set to empty to hide the button
   displayGreeting: true // Set false to hide this section, defaults to true
 };
 
@@ -307,7 +307,7 @@ const achievementSection = {
       footerLink: [
         {
           name: "我的证书",
-          url: "/certs/cet4.pdf"
+          url: "cet4.jpg"
         }
       ]
     },
@@ -320,7 +320,7 @@ const achievementSection = {
       footerLink: [
         {
           name: "我的证书",
-          url: "/certs/ncre.pdf"
+          url: "ncre.jpg"
         }
       ]
     },
@@ -333,7 +333,7 @@ const achievementSection = {
       footerLink: [
         {
           name: "我的证书",
-          url: "/certs/lizhi.pdf"},
+          url: "lizhi.jpg"},
         
       ]
     }
@@ -347,7 +347,7 @@ const blogSection = {
   title: "我的博客",
   subtitle:
     "分享我在测控、全栈开发及硬件调试中的技术心得",
-  displayMediumBlogs: "true", // Set true to display fetched medium blogs instead of hardcoded ones
+  displayMediumBlogs: "false", // Set true to display fetched medium blogs instead of hardcoded ones
   mediumUsername: "qq_65675171",
   blogs: [      //这里bolgs里的内容是在未能读去到csdn的情况下读去的内容
     {
