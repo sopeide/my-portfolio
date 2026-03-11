@@ -16,13 +16,13 @@ export default function SoftwareSkill() {
               >
                 {/* 判断：如果是以 icon- 开头，则使用 SVG 渲染 Iconfont */}
                 {skills.fontAwesomeClassname.startsWith("icon-") ? (
-                  <svg 
-                    className="icon" 
-                    aria-hidden="true" 
+                  <svg
+                    className="icon"
+                    aria-hidden="true"
                     style={{
-                      fontSize: "45px", 
-                      height: "1em", 
-                      width: "1em",
+                      fontSize: "45px",
+                      height: "1em",
+                      width: "1em"
                       // fill: "inherit" // 确保它读取 SCSS 中定义的 color
                     }}
                   >

@@ -25,8 +25,7 @@ const greeting = {
   subTitle: emoji(
     "一位具有扎实模电、数电、半导体物理知识的25届毕业生 🚀 同时也是全栈开发和3D建模的爱好者。熟悉使用各种AI软件配合工作顺利推进，做事细致严谨、耐心专注，"
   ),
-  resumeLink:
-    "/images/resume.jpg", // Set to empty to hide the button
+  resumeLink: "/images/resume.jpg", // Set to empty to hide the button
   displayGreeting: true // Set false to hide this section, defaults to true
 };
 
@@ -35,8 +34,8 @@ const greeting = {
 const socialMediaLinks = {
   gmail: "15380209798@163.com",
   github: "https://github.com/sopeide",
-  csdn:"https://blog.csdn.net/qq_65675171",
-  wechat:"/images/wx.jpg",
+  csdn: "https://blog.csdn.net/qq_65675171",
+  wechat: "/images/wx.jpg",
   // linkedin: "https://www.linkedin.com/in/saadpasta/",
   // gitlab: "https://gitlab.com/saadpasta",
   // facebook: "https://www.facebook.com/saad.pasta7",
@@ -53,13 +52,9 @@ const skillsSection = {
   title: "我的技能树",
   subTitle: "作为测控背景的全栈开发者，我具备从底层电路到上层Web开发的综合能力",
   skills: [
-    emoji(
-      "⚡ 擅长基于 React/Node.js 的全栈 Web 开发"
-    ),
+    emoji("⚡ 擅长基于 React/Node.js 的全栈 Web 开发"),
     emoji("⚡ 熟悉单片机、FPGA 及各类传感器的数据采集与测控"),
-    emoji(
-      "⚡ 掌握数电、模电、半导体物理基础，熟悉器件制备与表征工艺"
-    )
+    emoji("⚡ 掌握数电、模电、半导体物理基础，熟悉器件制备与表征工艺")
   ],
 
   /* Make Sure to include correct Font Awesome Classname to view your icon
@@ -116,28 +111,28 @@ https://fontawesome.com/icons?d=gallery */
     },
     {
       skillName: "C/C++",
-      fontAwesomeClassname: "icon-cyuyan", // 假设你在 Iconfont 项目里的 ID 是这个
+      fontAwesomeClassname: "icon-cyuyan" // 假设你在 Iconfont 项目里的 ID 是这个
     },
     {
       skillName: "单片机",
-      fontAwesomeClassname: "icon-danpianji", 
+      fontAwesomeClassname: "icon-danpianji"
     },
     {
       skillName: "3D建模",
-      fontAwesomeClassname: "icon-Djianmo", 
+      fontAwesomeClassname: "icon-Djianmo"
     },
     {
       skillName: "AutoCAD",
-      fontAwesomeClassname: "icon-AutoCAD", 
+      fontAwesomeClassname: "icon-AutoCAD"
     },
     {
       skillName: "AI",
-      fontAwesomeClassname: "icon-wuguan", 
+      fontAwesomeClassname: "icon-wuguan"
     },
     {
       skillName: "Office",
-      fontAwesomeClassname: "icon-Office", 
-    },
+      fontAwesomeClassname: "icon-Office"
+    }
 
     // {
     //   skillName: "docker",
@@ -158,9 +153,10 @@ const educationInfo = {
       subHeader: "测控技术与仪器",
       duration: "2021.9 - 2025.6",
       desc: "Participated in the research of XXX and published 3 papers.",
-      descBullets:
-      [
-        emoji("⚡ 核心课程：单片机原理、自动控制理论、半导体物理、信号与系统。" ),
+      descBullets: [
+        emoji(
+          "⚡ 核心课程：单片机原理、自动控制理论、半导体物理、信号与系统。"
+        ),
         emoji("⚡ 3.2/前20%，累计四次获得人民奖学金及国家励志奖学金。"),
         emoji("⚡ 掌握数电、模电、半导体物理基础，熟悉器件制备与表征工艺")
       ]
@@ -193,7 +189,7 @@ const techStack = {
       Stack: "理论知识",
       progressPercentage: "80%"
     },
-     {
+    {
       Stack: "代码功底",
       progressPercentage: "70%"
     }
@@ -229,7 +225,6 @@ const workExperiences = {
         "用 CAD/CAXA 绘制 20 + 张规范工程图纸，一次通过率 95%",
         "E3D/Tekla 建模优化布局，解决管线干涉，空间利用率提升 20%"
       ]
-    
     },
     {
       role: "实习生",
@@ -241,7 +236,6 @@ const workExperiences = {
         "参与船舶制造全流程学习，在分段车间实习期间深入了解船体分段建造工艺及生产组织流程。",
         "在船体加工车间开展实习实践，系统学习船体构件加工工艺及相关设备的实际操作流程。"
       ]
-
     }
   ]
 };
@@ -285,7 +279,7 @@ const bigProjects = {
     //     }
     //   ]
     // }
-      {
+    {
       image: require("./assets/images/wurenji.png"),
       projectName: "无人机云平台可视化设计",
       projectDesc: "全栈搭建无人机数据采集 - 传输 - 存储 - 可视化系统",
@@ -295,11 +289,10 @@ const bigProjects = {
           url: "/images/xiangmu.jpg",
           isProject: true
         }
-
       ]
     },
 
-      {
+    {
       image: require("./assets/images/chengji.png"),
       projectName: "成绩单",
       projectDesc: "本科四年平均绩点3.2，专业排名前20%",
@@ -311,8 +304,7 @@ const bigProjects = {
         }
         //  you can add extra buttons here.
       ]
-    },
-
+    }
   ],
   display: true // Set false to hide this section, defaults to true
 };
@@ -322,14 +314,12 @@ const bigProjects = {
 
 const achievementSection = {
   title: emoji("成就 和 证书 🏆 "),
-  subtitle:
-    "成就、证书、获奖证书以及我所完成的一些精彩的事情！",
+  subtitle: "成就、证书、获奖证书以及我所完成的一些精彩的事情！",
 
   achievementsCards: [
     {
       title: "英语四级(CET-4)",
-      subtitle:
-        "英语读写能力优秀，能够进行英文技术文档的阅读，写一些英文报告.",
+      subtitle: "英语读写能力优秀，能够进行英文技术文档的阅读，写一些英文报告.",
       image: require("./assets/images/cet4.png"),
       imageAlt: "CET-4 Logo",
       footerLink: [
@@ -355,18 +345,17 @@ const achievementSection = {
 
     {
       title: "国家励志奖学金",
-      subtitle: "累计四次获得奖学金，综合测评排名专业前 20%，体现了在理论课程上的优秀掌握程度。",
+      subtitle:
+        "累计四次获得奖学金，综合测评排名专业前 20%，体现了在理论课程上的优秀掌握程度。",
       image: require("./assets/images/money.png"),
       imageAlt: "Scholarship Logo",
       footerLink: [
         {
           name: "我的证书",
-          url: "/images/lizhi.jpg"},
-        
+          url: "/images/lizhi.jpg"
+        }
       ]
     }
-
-    
   ],
   display: true // Set false to hide this section, defaults to true
 };
@@ -405,7 +394,8 @@ const blogSection = {
     {
       url: "https://blog.csdn.net/qq_65675171/article/details/157556722",
       title: "React 个人网站修改流程",
-      description: "本文记录了基于 React 框架修改 developerFolio 个人网站的完整流程，包含 Iconfont 集成与样式排版心得。",
+      description:
+        "本文记录了基于 React 框架修改 developerFolio 个人网站的完整流程，包含 Iconfont 集成与样式排版心得。",
       image: "https://cdn.jsdelivr.net/gh/sopeide/-@main/blog1.jpg" // 你可以自己找个封面图链接
     },
     {
@@ -415,7 +405,7 @@ const blogSection = {
       image: "https://cdn.jsdelivr.net/gh/sopeide/-@main/blog2.jpg"
     }
   ],
-  display: true 
+  display: true
 };
 
 // Talks Sections
@@ -461,8 +451,7 @@ const resumeSection = {
 
 const contactInfo = {
   title: emoji("求你来联系我 ☎️"),
-  subtitle:
-    "招我给你当干活 或者 就是交个朋友简单聊聊? 我的邮箱都开放噢。",
+  subtitle: "招我给你当干活 或者 就是交个朋友简单聊聊? 我的邮箱都开放噢。",
   number: "+86-15380209798",
   email_address: "15380209798@163.com"
 };

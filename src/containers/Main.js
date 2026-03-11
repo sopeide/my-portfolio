@@ -28,8 +28,9 @@ import LifeMap from "./life-map/LifeMap";
 const Main = () => {
   const darkPref = window.matchMedia("(prefers-color-scheme: dark)");
   const [isDark, setIsDark] = useLocalStorage("isDark", darkPref.matches);
-  const [isShowingSplashAnimation, setIsShowingSplashAnimation] = useState(true);
-  
+  const [isShowingSplashAnimation, setIsShowingSplashAnimation] =
+    useState(true);
+
   // 控制 3D 地图显示的开关
   const [show3DMap, setShow3DMap] = useState(false);
   // 新增：存储当前打开的 3D 路径
@@ -38,8 +39,8 @@ const Main = () => {
   // 新增：弹窗控制状态
   const [modalStatus, setModalStatus] = useState({
     isOpen: false,
-    type: "",      // "wechat", "resume", "certificate"
-    content: null  // 存储证书的图片路径和标题
+    type: "", // "wechat", "resume", "certificate"
+    content: null // 存储证书的图片路径和标题
   });
 
   useEffect(() => {
@@ -59,7 +60,7 @@ const Main = () => {
   };
 
   // 处理进入 3D 世界的逻辑 - 修改：接收 path 参数
-  const handleEnter3D = (path) => {
+  const handleEnter3D = path => {
     window.onscroll = null;
     document.body.style.overflow = "hidden";
     setThreeDPath(path); // 设置要加载的路径
@@ -70,16 +71,16 @@ const Main = () => {
   const handleBackToResume = () => {
     document.body.style.overflow = "auto";
     setShow3DMap(false);
-    window.location.reload(); 
+    window.location.reload();
   };
-  
+
   // 新增：统一打开弹窗的函数
   const openModal = (type, content = null) => {
-    setModalStatus({ isOpen: true, type, content });
+    setModalStatus({isOpen: true, type, content});
   };
 
   const closeModal = () => {
-    setModalStatus({ ...modalStatus, isOpen: false });
+    setModalStatus({...modalStatus, isOpen: false});
   };
 
   return (
@@ -101,7 +102,10 @@ const Main = () => {
                 <Education />
                 <WorkExperience />
                 <Projects />
-                <StartupProject handleEnter3D={handleEnter3D} openModal={openModal} />
+                <StartupProject
+                  handleEnter3D={handleEnter3D}
+                  openModal={openModal}
+                />
                 <Achievement openModal={openModal} />
                 <Blogs />
                 <Talks />
@@ -115,11 +119,11 @@ const Main = () => {
           </>
         )}
         {/* 渲染封装的弹窗组件 */}
-        <ModalManager 
-          isOpen={modalStatus.isOpen} 
-          onClose={closeModal} 
-          type={modalStatus.type} 
-          content={modalStatus.content} 
+        <ModalManager
+          isOpen={modalStatus.isOpen}
+          onClose={closeModal}
+          type={modalStatus.type}
+          content={modalStatus.content}
         />
       </StyleProvider>
     </div>

@@ -30,25 +30,46 @@
 }
 
 /* 2. 原有国外平台样式（保持圆圈背景，图标较小） */
-.facebook i { background-color: $faceBook; }
-.linkedin i { background-color: $linkedin; }
-.github i { background-color: $github; }
-.gitlab i { background-color: $gitlab; }
-.google i { background-color: $google; }
-.twitter i { background-color: $twitter; }
-.medium i { background-color: $medium; }
-.stack-overflow i { background-color: $stackoverflow; }
-.kaggle i { background-color: $kaggle; }
-.instagram i { background-color: $instagram; }
+.facebook i {
+  background-color: $faceBook;
+}
+.linkedin i {
+  background-color: $linkedin;
+}
+.github i {
+  background-color: $github;
+}
+.gitlab i {
+  background-color: $gitlab;
+}
+.google i {
+  background-color: $google;
+}
+.twitter i {
+  background-color: $twitter;
+}
+.medium i {
+  background-color: $medium;
+}
+.stack-overflow i {
+  background-color: $stackoverflow;
+}
+.kaggle i {
+  background-color: $kaggle;
+}
+.instagram i {
+  background-color: $instagram;
+}
 
 /* 3. 微信与 CSDN 专属样式（无背景，图标撑满） */
-.wechat i, .csdn i {
+.wechat i,
+.csdn i {
   background-color: transparent !important; /* 强制去掉圆圈背景 */
-  
+
   .icon {
     /* 调整为 2.4rem，既能撑满，又能保持视觉上的居中对齐 */
-    width: 2.4rem;  
-    height: 2.4rem; 
+    width: 2.4rem;
+    height: 2.4rem;
   }
 }
 
@@ -63,10 +84,10 @@
   vertical-align: middle;
 }
 
-  /* 6. Hover 逻辑 */
-  .icon-button i:hover {
-    transform: scale(1.15);
-  }
+/* 6. Hover 逻辑 */
+.icon-button i:hover {
+  transform: scale(1.15);
+}
 
 /* 只有带背景色的图标（除了微信和CSDN）在 hover 时变色 */
 .icon-button:not(.wechat):not(.csdn) i:hover {

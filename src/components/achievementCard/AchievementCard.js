@@ -7,8 +7,8 @@ export default function AchievementCard({cardInfo, isDark, openModal}) {
     if (!v.url) return;
 
     // 核心改动：手动拼接正确的基础路径，解决腾讯云 404
-    const correctUrl = v.url.startsWith("http") 
-      ? v.url 
+    const correctUrl = v.url.startsWith("http")
+      ? v.url
       : process.env.PUBLIC_URL + (v.url.startsWith("/") ? v.url : "/" + v.url);
 
     if (v.name.includes("Certificate") || v.name.includes("证书")) {
@@ -22,7 +22,7 @@ export default function AchievementCard({cardInfo, isDark, openModal}) {
         // 如果是电脑，使用 Modal 弹窗展示
         openModal("certificate", {
           title: cardInfo.title,
-          src: correctUrl 
+          src: correctUrl
         });
       }
     } else {
@@ -36,7 +36,11 @@ export default function AchievementCard({cardInfo, isDark, openModal}) {
     <div className={isDark ? "dark-mode certificate-card" : "certificate-card"}>
       <div className="certificate-image-div">
         <img
-          src={cardInfo.image.startsWith("/") ? process.env.PUBLIC_URL + cardInfo.image : cardInfo.image}
+          src={
+            cardInfo.image.startsWith("/")
+              ? process.env.PUBLIC_URL + cardInfo.image
+              : cardInfo.image
+          }
           alt={cardInfo.imageAlt || "Card Thumbnail"}
           className="card-image"
         ></img>

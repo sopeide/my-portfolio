@@ -2,24 +2,23 @@ import React from "react";
 import "./SocialMedia.scss";
 import {socialMediaLinks} from "../../portfolio";
 
-export default function socialMedia({ openModal }) {
+export default function socialMedia({openModal}) {
   if (!socialMediaLinks.display) {
     return null;
   }
   return (
     <div className="social-media-div">
-      
       {socialMediaLinks.csdn ? (
-        <a  
-          href={socialMediaLinks.csdn} 
-          className="icon-button csdn" 
-          target="_blank" 
+        <a
+          href={socialMediaLinks.csdn}
+          className="icon-button csdn"
+          target="_blank"
           rel="noopener noreferrer"
         >
           <i className="csdn-icon">
             <svg className="icon" aria-hidden="true" width="20" height="20">
               {/* 这里 #icon-csdn 对应你在 Iconfont 项目里看到的图标 ID */}
-              <use xlinkHref="#icon-csdn1"></use> 
+              <use xlinkHref="#icon-csdn1"></use>
             </svg>
           </i>
           <span></span>
@@ -31,9 +30,9 @@ export default function socialMedia({ openModal }) {
           href=" "
           className="icon-button wechat"
           // 【核心修改点】：不再跳转网页，而是触发弹窗
-          onClick={(e) => {
+          onClick={e => {
             e.preventDefault();
-            openModal("wechat"); 
+            openModal("wechat");
           }}
           rel="noopener noreferrer"
         >
@@ -45,7 +44,7 @@ export default function socialMedia({ openModal }) {
           <span></span>
         </a>
       ) : null}
-      
+
       {socialMediaLinks.github ? (
         <a
           href={socialMediaLinks.github}

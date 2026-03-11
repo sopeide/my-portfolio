@@ -17,7 +17,7 @@ export default function Projects() {
   useEffect(() => {
     // 【核心修改点 1】：如果配置里 display 是 false，直接跳过 fetch 逻辑
     if (!openSource.display) {
-      return; 
+      return;
     }
 
     const getRepoData = () => {
@@ -32,9 +32,7 @@ export default function Projects() {
           setrepoFunction(response.data.user.pinnedItems.edges);
         })
         .catch(function (error) {
-          console.error(
-            `${error} (GitHub data fetching failed)`
-          );
+          console.error(`${error} (GitHub data fetching failed)`);
           setrepoFunction("Error");
         });
     };
@@ -47,10 +45,10 @@ export default function Projects() {
 
   // 【核心修改点 2】：增加对 openSource.display 的严格判断
   if (
-    openSource.display && 
-    repo && 
-    repo !== "Error" && 
-    Array.isArray(repo) && 
+    openSource.display &&
+    repo &&
+    repo !== "Error" &&
+    Array.isArray(repo) &&
     repo.length > 0
   ) {
     return (
@@ -60,7 +58,9 @@ export default function Projects() {
           <div className="repo-cards-div-main">
             {repo.map((v, i) => {
               if (!v) {
-                console.error(`Github Object for repository number : ${i} is undefined`);
+                console.error(
+                  `Github Object for repository number : ${i} is undefined`
+                );
                 return null;
               }
               return (

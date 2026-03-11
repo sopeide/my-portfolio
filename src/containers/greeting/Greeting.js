@@ -9,28 +9,27 @@ import Button from "../../components/button/Button";
 import {illustration, greeting} from "../../portfolio";
 import StyleContext from "../../contexts/StyleContext";
 
-export default function Greeting({ openModal }) {
+export default function Greeting({openModal}) {
   const {isDark} = useContext(StyleContext);
   if (!greeting.displayGreeting) {
     return null;
   }
 
   // 1. 修改点击处理函数，增加 process.env.PUBLIC_URL 确保路径万无一失
-  const handleResumeClick = (e) => {
-      e.preventDefault();
-      // 使用 PUBLIC_URL 确保路径绝对正确
-      const resumeImgPath = process.env.PUBLIC_URL + "/images/resume.jpg"; 
+  const handleResumeClick = e => {
+    e.preventDefault();
+    // 使用 PUBLIC_URL 确保路径绝对正确
+    const resumeImgPath = process.env.PUBLIC_URL + "/images/resume.jpg";
 
-      // 这里直接调用传入的 openModal
-      openModal("resume", { 
-          title: "个人简历预览", 
-          src: resumeImgPath 
-      });
+    // 这里直接调用传入的 openModal
+    openModal("resume", {
+      title: "个人简历预览",
+      src: resumeImgPath
+    });
   };
 
   return (
     <Fade bottom duration={1000} distance="40px">
-
       {/* <SocialMedia openModal={openModal} />  */}
 
       <div className="greet-main" id="greeting">
@@ -54,15 +53,15 @@ export default function Greeting({ openModal }) {
                 {greeting.subTitle}
               </p>
               <div id="resume" className="empty-div"></div>
-              
-              <SocialMedia openModal={openModal}/>
+
+              <SocialMedia openModal={openModal} />
 
               <div className="button-greeting-div">
                 <Button text="联系我" href="#contact" />
                 {greeting.resumeLink && (
-                  <Button 
-                    text="查看我的简历" 
-                    onClick={(e) => {
+                  <Button
+                    text="查看我的简历"
+                    onClick={e => {
                       e.preventDefault(); // 阻止默认行为
                       handleResumeClick(e);
                     }}

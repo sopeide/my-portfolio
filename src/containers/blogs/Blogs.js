@@ -30,7 +30,7 @@ export default function Blogs() {
     if (blogSection.displayMediumBlogs === "true") {
       const getProfileData = () => {
         const csdnUsername = blogSection.mediumUsername;
-        
+
         // 构造 URL。注意：rss2json 有时需要 api_key，如果下面这个免费版失效，说明 CSDN 封锁了该转换器
         const url = `https://api.rss2json.com/v1/api.json?rss_url=https://blog.csdn.net/${csdnUsername}/rss/list`;
 
@@ -43,7 +43,11 @@ export default function Blogs() {
           })
           .then(response => {
             // 增加 status 状态判断
-            if (response.status === "ok" && response.items && response.items.length > 0) {
+            if (
+              response.status === "ok" &&
+              response.items &&
+              response.items.length > 0
+            ) {
               const latestBlogs = response.items.slice(0, 3);
               setMediumBlogsFunction(latestBlogs);
             } else {
@@ -105,7 +109,9 @@ export default function Blogs() {
                       blog={{
                         url: blog.link, // CSDN 文章链接
                         title: blog.title, // CSDN 文章标题
-                        description: extractTextContent(blog.description || blog.content) // CSDN 文章摘要
+                        description: extractTextContent(
+                          blog.description || blog.content
+                        ) // CSDN 文章摘要
                       }}
                     />
                   );

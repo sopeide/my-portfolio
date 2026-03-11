@@ -1,7 +1,7 @@
-import React, { useRef, useEffect } from "react";
+import React, {useRef, useEffect} from "react";
 
 // 修改：接收 src 属性
-const LifeMap = ({ src, onBack }) => {
+const LifeMap = ({src, onBack}) => {
   const iframeRef = useRef(null);
 
   useEffect(() => {
@@ -21,19 +21,19 @@ const LifeMap = ({ src, onBack }) => {
   }, []);
 
   return (
-    <div 
-      style={{ 
-        width: "100vw", 
-        height: "100vh", 
-        position: "fixed", 
-        top: 0, 
-        left: 0, 
-        zIndex: 99999999, 
+    <div
+      style={{
+        width: "100vw",
+        height: "100vh",
+        position: "fixed",
+        top: 0,
+        left: 0,
+        zIndex: 99999999,
         background: "#000",
         overflow: "hidden"
       }}
     >
-      <button 
+      <button
         onClick={onBack}
         style={{
           position: "absolute",
@@ -56,7 +56,7 @@ const LifeMap = ({ src, onBack }) => {
       <iframe
         ref={iframeRef}
         // 修改：使用传入的动态路径
-        src={src} 
+        src={src}
         title="3D Experience"
         style={{
           width: "100%",

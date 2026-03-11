@@ -4,9 +4,9 @@ import {bigProjects} from "../../portfolio";
 import {Fade} from "react-reveal";
 import StyleContext from "../../contexts/StyleContext";
 
-export default function StartupProject({ handleEnter3D, openModal }) { 
+export default function StartupProject({handleEnter3D, openModal}) {
   function openUrlInNewTab(url) {
-    if (!url || url === "#") return; 
+    if (!url || url === "#") return;
     var win = window.open(url, "_blank");
     win.focus();
   }
@@ -15,47 +15,79 @@ export default function StartupProject({ handleEnter3D, openModal }) {
   if (!bigProjects.display) {
     return null;
   }
-  
+
   return (
     <Fade bottom duration={1000} distance="20px">
       <div className="main" id="projects">
         <div>
           <h1 className="skills-heading">{bigProjects.title}</h1>
-          <p className={isDark ? "dark-mode project-subtitle" : "subTitle project-subtitle"}>
+          <p
+            className={
+              isDark
+                ? "dark-mode project-subtitle"
+                : "subTitle project-subtitle"
+            }
+          >
             {bigProjects.subtitle}
           </p>
 
           <div className="projects-container">
             {bigProjects.projects.map((project, i) => {
               return (
-                <div key={i} className={isDark ? "dark-mode project-card project-card-dark" : "project-card project-card-light"}>
+                <div
+                  key={i}
+                  className={
+                    isDark
+                      ? "dark-mode project-card project-card-dark"
+                      : "project-card project-card-light"
+                  }
+                >
                   {project.image && (
                     <div className="project-image">
-                      <img src={project.image} alt={project.projectName} className="card-image" />
+                      <img
+                        src={project.image}
+                        alt={project.projectName}
+                        className="card-image"
+                      />
                     </div>
                   )}
                   <div className="project-detail">
-                    <h5 className={isDark ? "dark-mode card-title" : "card-title"}>{project.projectName}</h5>
-                    <p className={isDark ? "dark-mode card-subtitle" : "card-subtitle"}>{project.projectDesc}</p>
-                    
+                    <h5
+                      className={isDark ? "dark-mode card-title" : "card-title"}
+                    >
+                      {project.projectName}
+                    </h5>
+                    <p
+                      className={
+                        isDark ? "dark-mode card-subtitle" : "card-subtitle"
+                      }
+                    >
+                      {project.projectDesc}
+                    </p>
+
                     {project.footerLink ? (
                       <div className="project-card-footer">
                         {project.footerLink.map((link, j) => {
                           return (
                             <span
                               key={j}
-                              className={isDark ? "dark-mode project-tag" : "project-tag"}
+                              className={
+                                isDark ? "dark-mode project-tag" : "project-tag"
+                              }
                               onClick={() => {
                                 if (link.is3D) {
-                                  handleEnter3D(link.url); 
-                                } else if (link.url.endsWith(".jpg") || link.url.endsWith(".png")) {
+                                  handleEnter3D(link.url);
+                                } else if (
+                                  link.url.endsWith(".jpg") ||
+                                  link.url.endsWith(".png")
+                                ) {
                                   // 如果链接以图片结尾，调用弹窗
                                   openModal("certificate", {
                                     title: project.projectName,
                                     src: process.env.PUBLIC_URL + link.url // 加上 PUBLIC_URL
                                   });
                                 } else {
-                                  openUrlInNewTab(link.url); 
+                                  openUrlInNewTab(link.url);
                                 }
                               }}
                             >
