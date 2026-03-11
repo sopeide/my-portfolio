@@ -4,7 +4,7 @@ import {bigProjects} from "../../portfolio";
 import {Fade} from "react-reveal";
 import StyleContext from "../../contexts/StyleContext";
 
-export default function StartupProject({ handleEnter3D }) { 
+export default function StartupProject({ handleEnter3D, openModal }) { 
   function openUrlInNewTab(url) {
     if (!url || url === "#") return; 
     var win = window.open(url, "_blank");
@@ -46,9 +46,14 @@ export default function StartupProject({ handleEnter3D }) {
                               key={j}
                               className={isDark ? "dark-mode project-tag" : "project-tag"}
                               onClick={() => {
-                                // 修改：如果是 3D 项目，将对应的 url 传入
                                 if (link.is3D) {
                                   handleEnter3D(link.url); 
+                                } else if (link.url.endsWith(".jpg") || link.url.endsWith(".png")) {
+                                  // 如果链接以图片结尾，调用弹窗
+                                  openModal("certificate", {
+                                    title: project.projectName,
+                                    src: process.env.PUBLIC_URL + link.url // 加上 PUBLIC_URL
+                                  });
                                 } else {
                                   openUrlInNewTab(link.url); 
                                 }

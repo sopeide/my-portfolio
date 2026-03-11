@@ -26,38 +26,34 @@ export default function Blogs() {
   }
 
   useEffect(() => {
-    // 只有在 portfolio.js 里设置 displayMediumBlogs 为 "true" 时才执行
+    // 确保是严格的字符串 "true" 判断
     if (blogSection.displayMediumBlogs === "true") {
       const getProfileData = () => {
-        // 第一步：确定 CSDN 用户名。优先 from portfolio.js 读取，没有则用默认
-        const csdnUsername = blogSection.mediumUsername || "你的CSDN用户名";
+        const csdnUsername = blogSection.mediumUsername;
         
-        // 第二步：构造 CSDN 的 RSS 转换接口 URL
-        // 添加 &t= 时间戳强制刷新缓存，确保抓取到最新的文章
-        const url = `https://api.rss2json.com/v1/api.json?rss_url=https://blog.csdn.net/${csdnUsername}/rss/list&t=${new Date().getTime()}`;
+        // 构造 URL。注意：rss2json 有时需要 api_key，如果下面这个免费版失效，说明 CSDN 封锁了该转换器
+        const url = `https://api.rss2json.com/v1/api.json?rss_url=https://blog.csdn.net/${csdnUsername}/rss/list`;
 
-        fetch(url) // 这一步改掉了原本的 fetch("/blogs.json")
+        fetch(url)
           .then(result => {
             if (result.ok) {
               return result.json();
             }
-            throw new Error("网络请求失败");
+            throw new Error("CSDN RSS 请求失败");
           })
           .then(response => {
-            // 第三步：将返回的文章列表存入状态
-            // 使用 slice(0, 3) 确保只展示最新的三篇文章
-            if (response.items && response.items.length > 0) {
+            // 增加 status 状态判断
+            if (response.status === "ok" && response.items && response.items.length > 0) {
               const latestBlogs = response.items.slice(0, 3);
               setMediumBlogsFunction(latestBlogs);
+            } else {
+              // 如果接口返回 ok 但内容为空，手动触发 Error 显示备选博客
+              setMediumBlogsFunction("Error");
             }
           })
           .catch(function (error) {
-            console.error(
-              `${error} (由于此错误，无法显示博客板块。已自动切换回默认显示)`
-            );
+            console.error("博客抓取错误:", error);
             setMediumBlogsFunction("Error");
-            // 如果报错，可以根据需要决定是否关闭显示
-            // blogSection.displayMediumBlogs = "false"; 
           });
       };
       getProfileData();

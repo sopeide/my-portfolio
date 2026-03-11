@@ -26,7 +26,7 @@ const greeting = {
     "一位具有扎实模电、数电、半导体物理知识的25届毕业生 🚀 同时也是全栈开发和3D建模的爱好者。熟悉使用各种AI软件配合工作顺利推进，做事细致严谨、耐心专注，"
   ),
   resumeLink:
-    "/resume.jpg", // Set to empty to hide the button
+    "/images/resume.jpg", // Set to empty to hide the button
   displayGreeting: true // Set false to hide this section, defaults to true
 };
 
@@ -36,7 +36,7 @@ const socialMediaLinks = {
   gmail: "15380209798@163.com",
   github: "https://github.com/sopeide",
   csdn:"https://blog.csdn.net/qq_65675171",
-  wechat:"https://cdn.jsdelivr.net/gh/sopeide/-@main/wx.jpg",
+  wechat:"/images/wx.jpg",
   // linkedin: "https://www.linkedin.com/in/saadpasta/",
   // gitlab: "https://gitlab.com/saadpasta",
   // facebook: "https://www.facebook.com/saad.pasta7",
@@ -208,7 +208,7 @@ const workExperiences = {
   experience: [
     {
       role: "软件设计师",
-      company: "无人机飞行监测系统",
+      company: "无人机云平台可视化设计",
       companylogo: require("./assets/images/wurenji.png"),
       date: "2025.2 – 2025.5",
       desc: "全栈搭建无人机数据采集 - 传输 - 存储 - 可视化系统，统筹开发体现全栈与创新能力。",
@@ -250,7 +250,7 @@ const workExperiences = {
 To know how to get github key look at readme.md */
 
 const openSource = {
-  showGithubProfile: "true", // Set true or false to show Contact profile using Github, defaults to true
+  showGithubProfile: "false", // Set true or false to show Contact profile using Github, defaults to true
   display: false // Set false to hide this section, defaults to true
 };
 
@@ -260,31 +260,59 @@ const bigProjects = {
   title: "主要项目展示",
   subtitle: "一些我做的项目展示（软件、硬件）",
   projects: [
-    {
-      image: require("./assets/images/mylife.png"),
-      projectName: "My Life 3D Interactive World",
-      projectDesc: "基于 WebGL 与物理引擎开发的 3D 个人生涯交互式空间。",
+    // {
+    //   image: require("./assets/images/mylife.png"),
+    //   projectName: "My Life 3D Interactive World",
+    //   projectDesc: "基于 WebGL 与物理引擎开发的 3D 个人生涯交互式空间。",
+    //   footerLink: [
+    //     {
+    //       name: "Start Engine (进入世界)",
+    //       url: "/folio/index.html",
+    //       is3D: true
+    //     }
+    //     //  you can add extra buttons here.
+    //   ]
+    // },
+    // {
+    //   image: require("./assets/images/myroom.png"),
+    //   projectName: "My 3D Room",
+    //   projectDesc: "交互式 3D 房间展示，通过 Three.js 还原真实生活空间。",
+    //   footerLink: [
+    //     {
+    //       name: "visit room（参观房间）",
+    //       url: "/room/index.html", // 指向新文件夹
+    //       is3D: true
+    //     }
+    //   ]
+    // }
+      {
+      image: require("./assets/images/wurenji.png"),
+      projectName: "无人机云平台可视化设计",
+      projectDesc: "全栈搭建无人机数据采集 - 传输 - 存储 - 可视化系统",
       footerLink: [
         {
-          name: "Start Engine (进入世界)",
-          url: "/folio/index.html",
-          is3D: true
+          name: "项目图片",
+          url: "/images/xiangmu.jpg",
+          isProject: true
+        }
+
+      ]
+    },
+
+      {
+      image: require("./assets/images/chengji.png"),
+      projectName: "成绩单",
+      projectDesc: "本科四年平均绩点3.2，专业排名前20%",
+      footerLink: [
+        {
+          name: "成绩单",
+          url: "/images/chengji.jpg",
+          isProject: true
         }
         //  you can add extra buttons here.
       ]
     },
-    {
-      image: require("./assets/images/myroom.png"),
-      projectName: "My 3D Room",
-      projectDesc: "交互式 3D 房间展示，通过 Three.js 还原真实生活空间。",
-      footerLink: [
-        {
-          name: "visit room（参观房间）",
-          url: "/room/index.html", // 指向新文件夹
-          is3D: true
-        }
-      ]
-    }
+
   ],
   display: true // Set false to hide this section, defaults to true
 };
@@ -307,7 +335,7 @@ const achievementSection = {
       footerLink: [
         {
           name: "我的证书",
-          url: "cet4.jpg"
+          url: "/images/cet4.jpg"
         }
       ]
     },
@@ -320,7 +348,7 @@ const achievementSection = {
       footerLink: [
         {
           name: "我的证书",
-          url: "ncre.jpg"
+          url: "/images/ncre.jpg"
         }
       ]
     },
@@ -333,37 +361,61 @@ const achievementSection = {
       footerLink: [
         {
           name: "我的证书",
-          url: "lizhi.jpg"},
+          url: "/images/lizhi.jpg"},
         
       ]
     }
+
+    
   ],
   display: true // Set false to hide this section, defaults to true
 };
 
 // Blogs Section
 
+// const blogSection = {
+//   title: "我的博客",
+//   subtitle:
+//     "分享我在测控、全栈开发及硬件调试中的技术心得",
+//   displayMediumBlogs: "true", // Set true to display fetched medium blogs instead of hardcoded ones
+//   mediumUsername: "qq_65675171",
+//   blogs: [      //这里bolgs里的内容是在未能读去到csdn的情况下读去的内容
+//     {
+//       url: "https://blog.csdn.net/qq_65675171?type=blog",
+//       title: "我的CSDN主页",
+//       description:
+//         "查看更多技术文章"
+//     },
+//     {
+//       url: "https://www.bilibili.com/",
+//       title: "bilibilibili",
+//       description:
+//         "偶尔看看休息休息"
+//     }
+//   ],
+//   display: true // Set false to hide this section, defaults to true
+// };   旧：实时抓取
+
 const blogSection = {
   title: "我的博客",
-  subtitle:
-    "分享我在测控、全栈开发及硬件调试中的技术心得",
-  displayMediumBlogs: "false", // Set true to display fetched medium blogs instead of hardcoded ones
+  subtitle: "分享我在测控、全栈开发及硬件调试中的技术心得",
+  displayMediumBlogs: "false", // 设为 false，停止通过接口抓取
   mediumUsername: "qq_65675171",
-  blogs: [      //这里bolgs里的内容是在未能读去到csdn的情况下读去的内容
+  blogs: [
     {
-      url: "https://blog.csdn.net/qq_65675171?type=blog",
-      title: "我的CSDN主页",
-      description:
-        "查看更多技术文章"
+      url: "https://blog.csdn.net/qq_65675171/article/details/157556722",
+      title: "React 个人网站修改流程",
+      description: "本文记录了基于 React 框架修改 developerFolio 个人网站的完整流程，包含 Iconfont 集成与样式排版心得。",
+      image: "https://cdn.jsdelivr.net/gh/sopeide/-@main/blog1.jpg" // 你可以自己找个封面图链接
     },
     {
-      url: "https://www.bilibili.com/",
-      title: "bilibilibili",
-      description:
-        "偶尔看看休息休息"
+      url: "https://blog.csdn.net/qq_65675171/article/details/157508339",
+      title: "API 内容获取测试",
+      description: "111223 内容获取测试。关于 CSDN RSS 接口的稳定性研究。",
+      image: "https://cdn.jsdelivr.net/gh/sopeide/-@main/blog2.jpg"
     }
   ],
-  display: true // Set false to hide this section, defaults to true
+  display: true 
 };
 
 // Talks Sections
@@ -410,7 +462,7 @@ const resumeSection = {
 const contactInfo = {
   title: emoji("求你来联系我 ☎️"),
   subtitle:
-    "招我给你当牛马 或者 就是交个朋友简单聊聊? 我的邮箱都开放噢。",
+    "招我给你当干活 或者 就是交个朋友简单聊聊? 我的邮箱都开放噢。",
   number: "+86-15380209798",
   email_address: "15380209798@163.com"
 };

@@ -15,7 +15,7 @@ const ModalManager = ({ isOpen, onClose, type, content }) => {
             <div className="modal-inner">
               <h3>添加我的微信</h3>
               <img 
-                src={process.env.PUBLIC_URL + "/wx.jpg"} 
+                src={process.env.PUBLIC_URL + "/images/wx.jpg"} 
                 alt="WeChat" 
                 style={{ width: "250px" }} 
               />
@@ -50,4 +50,4 @@ const ModalManager = ({ isOpen, onClose, type, content }) => {
   );
 };
 
-export default ModalManager;
+export default ModalManager; 

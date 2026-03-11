@@ -101,7 +101,7 @@ const Main = () => {
                 <Education />
                 <WorkExperience />
                 <Projects />
-                <StartupProject handleEnter3D={handleEnter3D} />
+                <StartupProject handleEnter3D={handleEnter3D} openModal={openModal} />
                 <Achievement openModal={openModal} />
                 <Blogs />
                 <Talks />

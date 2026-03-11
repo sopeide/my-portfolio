@@ -1,9 +1,10 @@
 import React, {useState, useEffect, useContext, Suspense, lazy} from "react";
 import "./Project.scss";
 import Button from "../../components/button/Button";
-import {openSource, socialMediaLinks} from "../../portfolio";
+import {openSource, socialMediaLinks} from "../../portfolio"; // 确保这里引入了配置
 import StyleContext from "../../contexts/StyleContext";
 import Loading from "../../containers/loading/Loading";
+
 export default function Projects() {
   const GithubRepoCard = lazy(() =>
     import("../../components/githubRepoCard/GithubRepoCard")
@@ -11,10 +12,14 @@ export default function Projects() {
   const FailedLoading = () => null;
   const renderLoader = () => <Loading />;
   const [repo, setrepo] = useState([]);
-  // todo: remove useContex because is not supported
   const {isDark} = useContext(StyleContext);
 
   useEffect(() => {
+    // 【核心修改点 1】：如果配置里 display 是 false，直接跳过 fetch 逻辑
+    if (!openSource.display) {
+      return; 
+    }
+
     const getRepoData = () => {
       fetch("/profile.json")
         .then(result => {
@@ -28,7 +33,7 @@ export default function Projects() {
         })
         .catch(function (error) {
           console.error(
-            `${error} (because of this error, nothing is shown in place of Projects section. Also check if Projects section has been configured)`
+            `${error} (GitHub data fetching failed)`
           );
           setrepoFunction("Error");
         });
@@ -39,9 +44,14 @@ export default function Projects() {
   function setrepoFunction(array) {
     setrepo(array);
   }
+
+  // 【核心修改点 2】：增加对 openSource.display 的严格判断
   if (
-    !(typeof repo === "string" || repo instanceof String) &&
-    openSource.display
+    openSource.display && 
+    repo && 
+    repo !== "Error" && 
+    Array.isArray(repo) && 
+    repo.length > 0
   ) {
     return (
       <Suspense fallback={renderLoader()}>
@@ -50,9 +60,8 @@ export default function Projects() {
           <div className="repo-cards-div-main">
             {repo.map((v, i) => {
               if (!v) {
-                console.error(
-                  `Github Object for repository number : ${i} is undefined`
-                );
+                console.error(`Github Object for repository number : ${i} is undefined`);
+                return null;
               }
               return (
                 <GithubRepoCard repo={v} key={v.node.id} isDark={isDark} />
@@ -69,6 +78,7 @@ export default function Projects() {
       </Suspense>
     );
   } else {
+    // 如果不展示或者报错，直接返回空（即之前的 FailedLoading）
     return <FailedLoading />;
   }
 }
